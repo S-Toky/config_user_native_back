@@ -1,0 +1,31 @@
+<div>
+  <% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
+
+<div>
+<h2> editer </h2>
+  <%= form_for @user, url: profil_path do |f| %>
+    <%= f.label :avatar_file, "avatar_file" %>
+    <%= f.file_field :avatar_file %><br>
+    <%= f.label :username, "username" %>
+    <%= f.text_field :username %><br>
+    <%= f.label :firstname, "firstname" %>
+    <%= f.text_field :firstname %><br>
+    <%= f.label :lastname, "lastname" %>
+    <%= f.text_field :lastname %><br>
+    <%= f.label :email, "email" %>
+    <%= f.email_field :email %><br>
+    <%= f.submit "s'inscrire" %>
+  <% end %>
+</div>
+<div>
+  <% if @user.avatar %>
+    <%= image_tag @user.avatar_url %>
+  <% end %>
+</div>

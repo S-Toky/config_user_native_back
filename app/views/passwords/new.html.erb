@@ -1,0 +1,9 @@
+
+<div>
+<h2> récupération de mot de passe </h2>
+  <%= form_for :user, url: passwords_path do |f| %>
+    <%= f.label :email, "votre email " %>
+    <%= f.email_field :email %><br>
+    <%= f.submit "envoyer le lien de reinitialisation" %>
+  <% end %>
+</div>
