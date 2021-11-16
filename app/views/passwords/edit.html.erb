@@ -1,0 +1,11 @@
+<div>
+<h2> MOt de passe </h2>
+  <%= form_for @user, url: password_path(@user.id) do |f| %>
+    <%= f.hidden_field :recover_password %>
+    <%= f.label :password, "Mot de passe" %>
+    <%= f.password_field :password %><br>
+    <%= f.label :password_confirmation, "confirmer votre mot de passe" %>
+    <%= f.password_field :password_confirmation %><br>
+    <%= f.submit "valider" %>
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<%
+=begin%>
+ <div>
+  <% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div> 
+<%
+=end%>
+
+<div>
+<h2> S'inscrire </h2>
+  <%= form_for :user, url: sessions_path do |f| %>
+    <%= f.label :username, "username ou email" %>
+    <%= f.text_field :username %><br>
+    <%= f.label :password, "Mot de passe" %>
+    <%= f.password_field :password %><br>
+    <%= f.submit "s'inscrire" %>
+  <% end %>
+  <p> <%= link_to "Mot de passe oublier", new_password_path %> </p>
+</div>
